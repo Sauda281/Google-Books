@@ -16,7 +16,10 @@ class Search extends React.Component {
 
     handleChange(e) {
         e.preventDefault();
-        this.setState({bookInput: e.target.value})
+
+          var name=e.target.name
+          var value=e.target.value
+        this.setState({ [name]: e.target.value})
     }
 
     handleSearchClick(e) {
@@ -33,7 +36,7 @@ class Search extends React.Component {
     render() {
         return(
             <main>
-                <SearchForm handleChange={this.handleChange} handleSearchClick={this.handleSearchClick} />
+                <SearchForm handleChange={this.handleChange} bookInput={this.state.bookInput} handleSearchClick={this.handleSearchClick} />
                 {(this.state.bookData.length > 0)?
                     <ResultsContainer bookData={this.state.bookData} path={this.props.match.path}/> : null
                 }
