@@ -52,7 +52,7 @@ module.exports = function(app) {
             }
         ).catch(
             (err) => {
-                rres.json({error: err});
+                res.json({error: err});
             }
         );
     });
